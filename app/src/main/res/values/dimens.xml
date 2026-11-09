@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Khoảng cách -->
+    <dimen name="space_4">4dp</dimen>
+    <dimen name="space_8">8dp</dimen>
+    <dimen name="space_12">12dp</dimen>
+    <dimen name="space_16">16dp</dimen>
+    <dimen name="space_24">24dp</dimen>
+    <dimen name="space_32">32dp</dimen>
+    <dimen name="screen_padding">20dp</dimen>
+
+    <!-- Bo góc -->
+    <dimen name="radius_chip">20dp</dimen>
+    <dimen name="radius_image">18dp</dimen>
+    <dimen name="radius_card">24dp</dimen>
+    <dimen name="radius_pill">28dp</dimen>
+
+    <!-- Kích thước -->
+    <dimen name="button_height">52dp</dimen>
+    <dimen name="input_height">50dp</dimen>
+    <dimen name="icon_button">40dp</dimen>
+    <dimen name="elevation_card">4dp</dimen>
+
+    <!-- Cỡ chữ (sp) -->
+    <dimen name="text_title">28sp</dimen>
+    <dimen name="text_heading">20sp</dimen>
+    <dimen name="text_body">15sp</dimen>
+    <dimen name="text_caption">13sp</dimen>
+    <dimen name="text_price">18sp</dimen>
+</resources>

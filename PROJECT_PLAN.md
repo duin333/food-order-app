@@ -1,13 +1,13 @@
 # FoodGo — Kế hoạch sản phẩm và phạm vi
 
 ## 1. Mục tiêu
-Ứng dụng Android đặt đồ ăn có UI đẹp, mang thương hiệu riêng (xanh lá nhiều tầng + mascot + chuyển động), một luồng demo trơn tru và các điểm nhấn: Group Ordering, Eco Rewards, Scheduled Delivery. Ưu tiên ổn định và giải thích được khi bảo vệ.
+Ứng dụng Android đặt đồ ăn có UI đẹp, mang thương hiệu riêng (logo, xanh lá nhiều tầng, ảnh món đẹp, chuyển động), một luồng demo trơn tru và các điểm nhấn: Group Ordering, Eco Rewards, Scheduled Delivery. Ưu tiên ổn định và giải thích được khi bảo vệ.
 
 ## 2. Vai trò người dùng
 Chỉ có **Khách hàng**. Admin, Chủ quán, Tài xế đã bỏ khỏi phạm vi (giảng viên không yêu cầu đủ actor). Không có `UserRole`.
 
 ## 3. Tính năng cốt lõi
-- Splash (mascot), đăng nhập demo.
+- Splash (logo + animation nhẹ), đăng nhập demo.
 - Trang chủ, danh mục, banner, danh sách quán, tìm kiếm.
 - Chi tiết quán, chi tiết món, thêm giỏ.
 - Giỏ hàng, thay đổi số lượng, tổng tiền.
@@ -72,7 +72,7 @@ Chỉ có **Khách hàng**. Admin, Chủ quán, Tài xế đã bỏ khỏi phạ
 5. Chất lượng UI, hiệu ứng, trạng thái trống/lỗi/loading.
 6. Allergy Guard.
 
-**Cắt theo thứ tự khi thiếu thời gian:** Allergy Guard → Hẹn giờ → đổi voucher Eco (giữ toggle + điểm) → mascot động (giữ bản tĩnh). Không bao giờ cắt luồng cốt lõi và Group Ordering.
+**Cắt theo thứ tự khi thiếu thời gian:** Allergy Guard → Hẹn giờ → đổi voucher Eco (giữ toggle + điểm) → animation phụ (giữ hiệu ứng cơ bản). Không bao giờ cắt luồng cốt lõi và Group Ordering.
 
 ## 8. Không làm
 Admin, Chủ quán, Tài xế, Smart Batch thật, thanh toán thật, bản đồ/GPS thật. Firebase để dành cho báo cáo cuối.

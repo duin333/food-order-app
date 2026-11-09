@@ -1,9 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
-    <style name="Base.Theme.FoodGo" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
-    </style>
+    <!-- Chỉ dùng giao diện sáng (không có dark mode ở BC3) -->
+    <style name="Theme.FoodGo" parent="Theme.Material3.Light.NoActionBar">
+        <item name="colorPrimary">@color/foodgo_primary</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorPrimaryContainer">@color/foodgo_mint</item>
+        <item name="colorOnPrimaryContainer">@color/foodgo_forest</item>
 
-    <style name="Theme.FoodGo" parent="Base.Theme.FoodGo" />
+        <item name="colorSecondary">@color/foodgo_mango</item>
+        <item name="colorOnSecondary">@color/foodgo_on_mango</item>
+
+        <item name="colorSurface">@color/white</item>
+        <item name="colorOnSurface">@color/foodgo_forest</item>
+        <item name="colorOnSurfaceVariant">@color/foodgo_text_secondary</item>
+        <item name="colorOutline">@color/foodgo_mint</item>
+        <item name="colorError">@color/foodgo_error</item>
+
+        <item name="android:colorBackground">@color/foodgo_mist</item>
+        <item name="android:statusBarColor">@color/foodgo_mist</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:textColorPrimary">@color/foodgo_forest</item>
+        <item name="android:textColorSecondary">@color/foodgo_text_secondary</item>
+
+        <!-- Bật dòng dưới sau khi đã thêm font Be Vietnam Pro vào res/font -->
+        <!-- <item name="android:fontFamily">@font/be_vietnam_pro</item> -->
+        <!-- <item name="fontFamily">@font/be_vietnam_pro</item> -->
+    </style>
 </resources>

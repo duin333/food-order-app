@@ -17,12 +17,12 @@
 Chỉ A được sửa `MainActivity`, điều hướng và theme trong giai đoạn này.
 
 ## Thành viên A — Khung app & luồng duyệt món
-- Splash có mascot.
+- Splash có logo và animation nhẹ.
 - Trang chủ (tìm kiếm, danh mục, banner, danh sách quán), màn Tìm kiếm.
 - Chi tiết quán, chi tiết món (chọn số lượng, thêm giỏ).
 - Hiệu ứng dùng chung: nhún nút, trượt thẻ, shimmer, món bay vào giỏ.
 - Trạng thái trống/lỗi/loading dùng chung.
-- Mascot SVG và biến thể (vui, chờ, thành công).
+- Logo FoodGo và bộ icon/minh họa đơn giản (trống, loading, thành công).
 - Giữ model, `Voucher`, điều hướng, theme.
 
 ## Thành viên B — Giỏ hàng, đặt đơn, Group Ordering

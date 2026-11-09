@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Nút chính: nền xanh, chữ trắng -->
+    <style name="Widget.FoodGo.Button.Primary" parent="Widget.Material3.Button">
+        <item name="backgroundTint">@color/foodgo_primary</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:minHeight">@dimen/button_height</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="cornerRadius">@dimen/radius_pill</item>
+    </style>
+
+    <!-- Nút phụ: viền xanh, nền trắng -->
+    <style name="Widget.FoodGo.Button.Secondary" parent="Widget.Material3.Button.OutlinedButton">
+        <item name="backgroundTint">@color/white</item>
+        <item name="strokeColor">@color/foodgo_primary</item>
+        <item name="strokeWidth">2dp</item>
+        <item name="android:textColor">@color/foodgo_primary</item>
+        <item name="android:minHeight">@dimen/button_height</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="cornerRadius">@dimen/radius_pill</item>
+    </style>
+
+    <!-- Nút nhạt: nền bạc hà -->
+    <style name="Widget.FoodGo.Button.Soft" parent="Widget.Material3.Button.TonalButton">
+        <item name="backgroundTint">@color/foodgo_mint</item>
+        <item name="android:textColor">@color/foodgo_forest</item>
+        <item name="android:minHeight">@dimen/button_height</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="cornerRadius">@dimen/radius_pill</item>
+    </style>
+
+    <!-- Giá tiền -->
+    <style name="TextAppearance.FoodGo.Price" parent="TextAppearance.Material3.TitleMedium">
+        <item name="android:textColor">@color/foodgo_price</item>
+        <item name="android:textSize">@dimen/text_price</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+</resources>

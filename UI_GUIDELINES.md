@@ -1,58 +1,62 @@
-# FoodGo — Quy chuẩn giao diện
+# FoodGo — Quy chuẩn giao diện (brand kit v0.1)
+
+Phạm vi: chỉ actor Khách hàng. Ảnh trong `design/KhachHang_Actor/` là nguồn tham chiếu bố cục; **màu sắc, font và component theo brand kit này** (các ảnh cũ chỉ có một tông xanh, chưa có thương hiệu).
 
 ## 1. Nguồn thiết kế
-- Ưu tiên các màn hình PNG trong 4 bộ ZIP đã có: Khách hàng, Chủ quán, Tài xế, Admin.
-- Trước khi code một màn hình, đối chiếu ảnh tham khảo và xác định: bố cục, nội dung, hành động chính, trạng thái và điều hướng.
-- Không tự ý thay đổi toàn bộ phong cách chỉ vì Claude có mẫu UI mặc định.
-- Nếu ảnh không đủ rõ, ghi giả định và hỏi lại thay vì bịa chi tiết.
+- Trước khi code một màn hình: đối chiếu ảnh tham khảo, xác định bố cục, nội dung, hành động chính, trạng thái, điều hướng.
+- Các ảnh trong `design/ChuQuan_Actor`, `TaiXe_Actor`, `Admin_Actor` chỉ để tham khảo phong cách, không code.
+- Màn Group Ordering, Eco, Hẹn giờ, Allergy chưa có ảnh: thiết kế theo brand kit, nhóm duyệt rồi mới code.
+- Nếu chi tiết không rõ, ghi giả định và hỏi lại, không bịa.
 
-## 2. Định hướng thương hiệu
-Định hướng sơ bộ: **Fresh & Modern**, xanh lá + trắng, cảm giác giao đồ ăn sạch sẽ, thân thiện, hiện đại. Hãy ưu tiên màu đã có trong thiết kế gốc nếu khác với đề xuất bên dưới.
+## 2. Thương hiệu
+Logo: chiếc lá trong ghim định vị. Phong cách: tươi, sạch, hiện đại; nhiều tầng xanh lá + một màu nhấn ấm. Không dùng mascot. Không dùng emoji làm icon chính.
 
-Palette đề xuất ban đầu (chỉ dùng nếu chưa có màu chuẩn từ thiết kế):
-- Primary: `#247A4B`
-- Primary light: `#E7F4E9`
-- Background: `#F7F9F7`
-- Surface: `#FFFFFF`
-- Text primary: `#25352B`
-- Text secondary: `#6B756E`
-- Border: `#E2E8E3`
-- Error: `#B42318`
+| Tên | Hex | Dùng cho | Resource |
+|---|---|---|---|
+| Rêu đậm | #0B3B27 | chữ, tiêu đề | `foodgo_forest` |
+| Xanh chủ đạo | #15803D | nút, CTA | `foodgo_primary` |
+| Xanh tươi | #22C55E | icon nhấn, trạng thái | `foodgo_fresh` |
+| Lá nhạt | #86D9A3 | viền, minh họa | `foodgo_leaf` |
+| Bạc hà | #D5F3DF | chip, thẻ nhấn | `foodgo_mint` |
+| Nền | #F1FAF4 | nền màn hình | `foodgo_mist` |
+| Xoài | #F59E0B | khuyến mãi, Eco | `foodgo_mango` |
+| Giá | #C2410C | giá tiền | `foodgo_price` |
+| Chữ phụ | #5B6B62 | mô tả | `foodgo_text_secondary` |
+| Cảnh báo | #B42318 | lỗi, dị ứng | `foodgo_error` |
 
-Không dùng màu hard-code rải rác trong layout; tập trung vào `colors.xml` và theme.
+Không hard-code màu trong layout; dùng `@color/...` hoặc thuộc tính theme.
+Chữ trắng chỉ đặt trên `foodgo_primary` hoặc `foodgo_forest`; trên `foodgo_mango` dùng `foodgo_on_mango`.
 
-## 3. Bố cục và khả năng dùng
-- Có phân cấp thị giác rõ: tiêu đề, thông tin phụ, giá, CTA.
-- Khoảng cách, bo góc, icon và kích thước nút nhất quán.
-- Nội dung có thể cuộn khi màn hình nhỏ.
-- Kiểm tra tràn chữ tiếng Việt và font scale.
-- Không đặt nút quan trọng sát mép màn hình.
-- Có trạng thái empty/loading/error khi phù hợp.
-- Nút phải thực hiện hành động thật trong phạm vi hiện tại, không chỉ trang trí.
+## 3. Font
+Be Vietnam Pro (Google Fonts, hỗ trợ đủ dấu tiếng Việt). Đóng gói file `.ttf` trong `res/font/` để chạy offline khi demo. Tiêu đề 800, nội dung 400, nhấn 700. Dùng `sp` cho chữ, `dp` cho kích thước.
 
-## 4. Hình ảnh món ăn
-- Ưu tiên ảnh món ăn đúng nội dung, crop thống nhất, chất lượng đồng đều.
-- Không dùng emoji thay ảnh món ăn chính.
-- Không dùng ảnh placeholder hoặc ảnh không liên quan trong bản demo cuối.
-- Đặt tên tài nguyên rõ ràng, viết thường và dùng dấu gạch dưới.
-- Tránh tải quá nhiều ảnh lớn vào một màn hình.
+## 4. Component dùng chung
+- Nút chính/phụ/nhạt: `Widget.FoodGo.Button.Primary`, `.Secondary`, `.Soft` (cao 52dp, bo tròn).
+- Thẻ: bo `radius_card` (24dp), nền trắng, bóng nhẹ, ảnh bo `radius_image`.
+- Chip danh mục: bo 20dp; đang chọn nền xanh chủ đạo, chưa chọn nền bạc hà.
+- Giá: `TextAppearance.FoodGo.Price`.
+- Badge cảnh báo dị ứng: nền `foodgo_error_bg`, chữ `foodgo_error`.
+- Voucher: ô màu xoài bên trái, thông tin bên phải.
+- Bottom navigation 4 tab: Trang chủ, Đơn hàng, Thông báo, Cá nhân; tab đang chọn là nền tròn xanh chủ đạo.
+- Trạng thái trống/loading (shimmer)/lỗi dùng chung cho toàn app.
+Không tạo component chung phức tạp nếu chỉ dùng một lần.
 
-## 5. Component dùng chung
-Xem xét tái sử dụng:
-- Primary/secondary button
-- Input/search field
-- Food card / restaurant card
-- Price row
-- Toolbar/top app bar
-- Bottom navigation theo từng vai trò nếu thiết kế có
-- Loading/empty/error state
-- Badge trạng thái đơn
+## 5. Chuyển động (dùng lại toàn app)
+Nút nhún khi chạm, thẻ trượt vào, shimmer khi tải, món bay vào icon giỏ, animation nhỏ khi đặt đơn thành công. Điện thoại không có hover: dùng ripple, nhún, đổi bóng khi chạm. Hiệu ứng không được cản luồng sử dụng.
 
-Không tạo component chung quá phức tạp nếu chỉ dùng một lần.
+## 6. Bố cục và khả năng dùng
+- Phân cấp rõ: tiêu đề, thông tin phụ, giá, CTA.
+- Khoảng cách theo `space_*`, bo góc theo `radius_*`.
+- Nội dung cuộn được; kiểm tra tràn chữ tiếng Việt và font scale.
+- Nút quan trọng không sát mép màn hình; vùng chạm tối thiểu 48dp.
+- Nút phải thực hiện hành động thật trong phạm vi hiện tại.
 
-## 6. XML và ViewBinding
-- Layout XML dễ đọc, tránh lồng quá nhiều cấp không cần thiết.
-- Dùng ViewBinding thay cho `findViewById()` trong code Kotlin mới.
-- Tách strings, colors, dimens và styles khi hợp lý.
-- Dùng `dp` cho kích thước và `sp` cho chữ.
-- Hạn chế đặt toàn bộ giao diện bằng code Kotlin.
+## 7. Hình ảnh món ăn
+- Nguồn Unsplash/Pexels, cùng tỉ lệ (4:3 hoặc 1:1), cùng tông, đúng món.
+- Đặt trong `res/drawable/`, tên `food_com_tam_01.jpg`, dưới ~200KB mỗi ảnh. Không phụ thuộc mạng khi demo.
+- Không dùng emoji hoặc placeholder trong bản demo cuối.
+
+## 8. XML và ViewBinding
+- Layout dễ đọc, hạn chế lồng nhiều cấp.
+- Dùng ViewBinding, không `findViewById()` trong code mới.
+- Tách strings, colors, dimens, styles.

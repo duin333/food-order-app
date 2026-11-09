@@ -11,7 +11,7 @@ Nguồn thiết kế chính: `design/KhachHang_Actor/`. Màn hình đăng ký/đ
 - AGP 9.4.1 (Kotlin tích hợp sẵn): KHÔNG thêm plugin Kotlin riêng.
 - JDK 17, compileSdk/targetSdk 37, minSdk 24, Java target 11.
 - Không dùng Jetpack Compose.
-- Không tự ý thêm thư viện. Hai thư viện ĐỀ XUẤT, chỉ thêm sau khi cả nhóm đồng ý: **Glide** (tải ảnh) và **Lottie** (mascot động). Chuyển động cơ bản dùng API Android có sẵn.
+- Không tự ý thêm thư viện. Hai thư viện ĐỀ XUẤT, chỉ thêm sau khi cả nhóm đồng ý: **Glide** (tải ảnh) và **Lottie** (tùy chọn, chỉ cho vài animation nhỏ như đặt đơn thành công). Chuyển động cơ bản dùng API Android có sẵn.
 
 ## 3. Cách tổ chức code
 - MVVM đơn giản, có Repository khi cần; tránh Clean Architecture phức tạp.
@@ -38,7 +38,7 @@ Trước mỗi nhiệm vụ:
 
 ## 6. Chất lượng UI (hướng thương hiệu)
 - Phong cách: **xanh lá chủ đạo, nhiều tầng tông xanh** (đậm, tươi, bạc hà nhạt, rêu) + **một màu nhấn ấm** (cam/vàng) cho giá và khuyến mãi. Bảng màu chi tiết sẽ nằm trong brand kit (`colors.xml`); khi brand kit được chốt, nó thay thế palette đề xuất trong `UI_GUIDELINES.md`.
-- Có **mascot** (nhân vật nhỏ) ở splash, trạng thái trống/loading, đặt đơn thành công, Group Ordering.
+- **Không dùng mascot.** Nhận diện thương hiệu dựa vào logo, bảng màu xanh nhiều tầng, ảnh món chất lượng, typography và minh họa/animation đơn giản (splash, trạng thái trống/loading, đặt đơn thành công, Group Ordering).
 - Quy tắc chuyển động dùng lại toàn app: nhún nút khi chạm, thẻ trượt vào, shimmer khi tải, món "bay" vào icon giỏ. Điện thoại không có hover; dùng ripple/nhún/đổi bóng khi chạm.
 - Ảnh món: cùng tỉ lệ, cùng tông, đặt trong `res/`, mỗi ảnh dưới ~200KB, lấy từ nguồn dùng được (Unsplash/Pexels). Không phụ thuộc mạng khi demo. Tên file kiểu `food_com_tam_01.jpg`.
 - Có trạng thái loading/empty/error; kiểm tra tràn chữ tiếng Việt và khả năng cuộn.

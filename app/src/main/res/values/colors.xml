@@ -2,4 +2,23 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <!-- FoodGo brand: nhiều tầng xanh lá -->
+    <color name="foodgo_forest">#0B3B27</color>        <!-- chữ, tiêu đề -->
+    <color name="foodgo_primary">#15803D</color>       <!-- nút, CTA -->
+    <color name="foodgo_fresh">#22C55E</color>         <!-- icon nhấn, trạng thái -->
+    <color name="foodgo_leaf">#86D9A3</color>          <!-- viền, minh họa -->
+    <color name="foodgo_mint">#D5F3DF</color>          <!-- chip, thẻ nhấn -->
+    <color name="foodgo_mist">#F1FAF4</color>          <!-- nền màn hình -->
+
+    <!-- Màu nhấn ấm: khuyến mãi, Eco -->
+    <color name="foodgo_mango">#F59E0B</color>
+    <color name="foodgo_on_mango">#3B2500</color>
+    <color name="foodgo_price">#C2410C</color>         <!-- giá tiền -->
+
+    <!-- Chữ phụ, trạng thái -->
+    <color name="foodgo_text_secondary">#5B6B62</color>
+    <color name="foodgo_disabled">#E3EAE6</color>
+    <color name="foodgo_error">#B42318</color>
+    <color name="foodgo_error_bg">#FDECEA</color>
 </resources>
