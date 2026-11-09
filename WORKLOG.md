@@ -60,3 +60,16 @@ Chưa đổi tên font, tạo be_vietnam_pro.xml, bật fontFamily hoặc thêm 
 **Quyết định mới:** Không thêm quyết định kiến trúc; chỉ thực hiện phần 0A đã duyệt. Không thêm dependency, Navigation, model hoặc màn hình. Không thay Gradle trong phiên này; cấu hình daemon 17 từ phiên trước giữ nguyên.
 **Lỗi / điểm chưa chắc chắn:** Lỗi tên font trước đây đã hết trong build hiện tại. Chưa kiểm tra trực quan styles/font trên emulator; styles mới chưa được gắn vào màn tính năng. JAVA_HOME hệ thống không đổi. Chưa commit/push.
 **Nhiệm vụ tiếp theo đề xuất (chỉ một):** 0B — chốt cây package, model dùng chung và repository contract.
+
+### [2026-11-09] Công cụ: Codex — Người giao việc: chủ repo — Giai đoạn 0B
+**Nhiệm vụ:** Model, repository contract và dữ liệu mẫu; không Navigation/Fragment/ViewModel/UI hoặc thư viện mới.
+**Đã làm:**
+- Thêm data/model/: FoodItem, Restaurant, CartItem, Order, OrderStatus, GroupOrder, GroupMember, GroupCartItem, Voucher; SplitMode, GroupOrderStatus, DiscountType, DeliveryMode. ID String, tiền Long VND, thời gian epoch millis; Order có đủ Eco/hẹn giờ/deliveryMode.
+- Thêm data/repository/: CatalogRepository, CartRepository, OrderRepository, GroupRepository, VoucherRepository (interface đồng bộ BC3; không EcoRepository).
+- Thêm data/sample/: SampleCatalog.kt, SampleCatalogRepository.kt, SampleCartRepository.kt, SampleOrderRepository.kt, SampleGroupRepository.kt, SampleVoucherRepository.kt. Dữ liệu và backend bộ nhớ đánh dấu sample; một quán/giỏ/phòng; order snapshot, đặt lặp cùng ID không tạo đơn mới; trạng thái đơn tiến thủ công, không timer.
+- Thêm AppContainer.kt ở package gốc, giữ repository chung; thêm SampleCatalogTest.kt (1 test). Cập nhật CURRENT_TASK.md, giữ các quyết định đã chốt và chỉ một bước tiếp theo 0C.
+**Cách kiểm tra:** Đọc AGENTS/CLAUDE/CURRENT_TASK/WORKLOG, kiểm tra git status và 10 commit gần nhất; kiểm tra dữ liệu, git diff --check. Unit test xác nhận 5 quán/17 món, mọi restaurantId tồn tại, giá dương, ID không trùng và mỗi quán >=3 món. Kiểm tra report XML: 1 test mới, 0 failures/errors/skips. Test mẫu cũ không sửa.
+**Build/test đã chạy:** Với JAVA_HOME=C:\Program Files\Java\jdk-17, ngoài sandbox: .\gradlew.bat testDebugUnitTest — BUILD SUCCESSFUL in 12s (exit 0); .\gradlew.bat assembleDebug — BUILD SUCCESSFUL in 3s (exit 0). Không chạy emulator/instrumentation hoặc kiểm thử nghiệp vụ repository đầy đủ.
+**Quyết định mới:** Người dùng xác nhận danh sách là 17 món, giữ đúng 17 thay vì tự thêm món thứ 18. Rating/địa chỉ/phí/thời gian và ingredient là dữ liệu minh họa; allergenCodes giữ theo bảng, danh sách rỗng không bảo đảm an toàn dị ứng.
+**Lỗi / điểm chưa chắc chắn:** Không có lỗi build/test. Repository chỉ local đồng bộ, mất dữ liệu khi process chết; Firebase sẽ cần contract bất đồng bộ. Chưa hiện thực chia tiền checkout, ledger Eco, timer theo dõi, transaction nối Group/Order hoặc ảnh thật; đó là công việc giai đoạn tính năng. Group mã phòng chỉ dùng trên một thiết bị. Không thêm dependency, không sửa Gradle/UI, không commit/push.
+**Nhiệm vụ tiếp theo đề xuất (chỉ một):** 0C — khung app + Navigation (không Safe Args; nav_graph.xml và menu bottom navigation chỉ A sửa).
