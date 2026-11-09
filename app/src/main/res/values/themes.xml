@@ -22,8 +22,7 @@
         <item name="android:textColorPrimary">@color/foodgo_forest</item>
         <item name="android:textColorSecondary">@color/foodgo_text_secondary</item>
 
-        <!-- Bật dòng dưới sau khi đã thêm font Be Vietnam Pro vào res/font -->
-        <!-- <item name="android:fontFamily">@font/be_vietnam_pro</item> -->
-        <!-- <item name="fontFamily">@font/be_vietnam_pro</item> -->
+        <item name="android:fontFamily">@font/be_vietnam_pro</item>
+        <item name="fontFamily">@font/be_vietnam_pro</item>
     </style>
 </resources>

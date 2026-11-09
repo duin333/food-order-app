@@ -5,7 +5,7 @@
         <item name="backgroundTint">@color/foodgo_primary</item>
         <item name="android:textColor">@color/white</item>
         <item name="android:minHeight">@dimen/button_height</item>
-        <item name="android:textSize">16sp</item>
+        <item name="android:textSize">@dimen/text_button</item>
         <item name="android:textStyle">bold</item>
         <item name="cornerRadius">@dimen/radius_pill</item>
     </style>
@@ -14,10 +14,10 @@
     <style name="Widget.FoodGo.Button.Secondary" parent="Widget.Material3.Button.OutlinedButton">
         <item name="backgroundTint">@color/white</item>
         <item name="strokeColor">@color/foodgo_primary</item>
-        <item name="strokeWidth">2dp</item>
+        <item name="strokeWidth">@dimen/stroke_button</item>
         <item name="android:textColor">@color/foodgo_primary</item>
         <item name="android:minHeight">@dimen/button_height</item>
-        <item name="android:textSize">16sp</item>
+        <item name="android:textSize">@dimen/text_button</item>
         <item name="android:textStyle">bold</item>
         <item name="cornerRadius">@dimen/radius_pill</item>
     </style>
@@ -27,7 +27,7 @@
         <item name="backgroundTint">@color/foodgo_mint</item>
         <item name="android:textColor">@color/foodgo_forest</item>
         <item name="android:minHeight">@dimen/button_height</item>
-        <item name="android:textSize">16sp</item>
+        <item name="android:textSize">@dimen/text_button</item>
         <item name="android:textStyle">bold</item>
         <item name="cornerRadius">@dimen/radius_pill</item>
     </style>
@@ -37,5 +37,51 @@
         <item name="android:textColor">@color/foodgo_price</item>
         <item name="android:textSize">@dimen/text_price</item>
         <item name="android:textStyle">bold</item>
+    </style>
+    <style name="Widget.FoodGo.Card" parent="Widget.Material3.CardView.Elevated">
+        <item name="cardBackgroundColor">@color/white</item>
+        <item name="cardCornerRadius">@dimen/radius_card</item>
+        <item name="cardElevation">@dimen/elevation_card</item>
+    </style>
+
+    <style name="Widget.FoodGo.Chip" parent="Widget.Material3.Chip.Filter">
+        <item name="chipCornerRadius">@dimen/radius_chip</item>
+        <item name="chipMinTouchTargetSize">@dimen/touch_target_min</item>
+        <item name="ensureMinTouchTargetSize">true</item>
+        <item name="android:textAppearance">@style/TextAppearance.FoodGo.Body</item>
+    </style>
+
+    <style name="Widget.FoodGo.TextInputLayout" parent="Widget.Material3.TextInputLayout.OutlinedBox">
+        <item name="boxCornerRadiusTopStart">@dimen/radius_image</item>
+        <item name="boxCornerRadiusTopEnd">@dimen/radius_image</item>
+        <item name="boxCornerRadiusBottomStart">@dimen/radius_image</item>
+        <item name="boxCornerRadiusBottomEnd">@dimen/radius_image</item>
+    </style>
+
+    <style name="Widget.FoodGo.TextInputEditText" parent="Widget.Material3.TextInputEditText.OutlinedBox">
+        <item name="android:minHeight">@dimen/input_height</item>
+        <item name="android:textAppearance">@style/TextAppearance.FoodGo.Body</item>
+    </style>
+
+    <style name="TextAppearance.FoodGo.Heading" parent="TextAppearance.Material3.TitleLarge">
+        <item name="android:fontFamily">@font/be_vietnam_pro_extrabold</item>
+        <item name="fontFamily">@font/be_vietnam_pro_extrabold</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">@dimen/text_heading</item>
+        <item name="android:textColor">@color/foodgo_forest</item>
+    </style>
+
+    <style name="TextAppearance.FoodGo.Body" parent="TextAppearance.Material3.BodyMedium">
+        <item name="android:fontFamily">@font/be_vietnam_pro_regular</item>
+        <item name="fontFamily">@font/be_vietnam_pro_regular</item>
+        <item name="android:textSize">@dimen/text_body</item>
+        <item name="android:textColor">@color/foodgo_forest</item>
+    </style>
+
+    <style name="TextAppearance.FoodGo.Caption" parent="TextAppearance.Material3.BodySmall">
+        <item name="android:fontFamily">@font/be_vietnam_pro_regular</item>
+        <item name="fontFamily">@font/be_vietnam_pro_regular</item>
+        <item name="android:textSize">@dimen/text_caption</item>
+        <item name="android:textColor">@color/foodgo_text_secondary</item>
     </style>
 </resources>

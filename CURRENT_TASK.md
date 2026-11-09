@@ -1,47 +1,42 @@
-# FoodGo — Nhiệm vụ hiện tại
+﻿# FoodGo — Nhiệm vụ hiện tại
 
 ## Trạng thái
-- [x] Thiết kế gốc nằm trong `design/` (Admin_Actor, ChuQuan_Actor, KhachHang_Actor, TaiXe_Actor).
-- [x] Công nghệ: Android Studio + Kotlin + XML + ViewBinding.
-- [x] Project Android Studio (Empty Views Activity), package `com.foodgo.app`.
-- [x] Gradle Sync thành công; app mẫu chạy được trên emulator.
-- [x] ViewBinding đã bật.
-- [x] Đã đẩy lên GitHub: https://github.com/duin333/Nhom9_AppDatXeGiaoDoAn.git (nhánh `main`).
-- [x] **Chốt phạm vi: chỉ actor Khách hàng.** Bỏ Admin, Chủ quán, Tài xế.
-- [x] Chốt điểm nhấn: Group Ordering (P1), Eco Rewards (P2), Scheduled Delivery (P3), Allergy Guard (P4, nếu còn thời gian). Smart Batch chỉ là lựa chọn phí ship mô phỏng.
-- [ ] Chưa có mã nguồn tính năng.
-- [ ] Chưa có brand kit, cây package, model dùng chung.
-- [ ] Chưa có thiết kế cho Group Ordering, Eco, Hẹn giờ, Allergy Guard.
+- Project Kotlin + XML, package `com.foodgo.app`; ViewBinding đã bật, Activity mẫu chưa dùng binding.
+- Chỉ actor Khách hàng; chưa có chức năng, model hoặc Navigation.
+- 0A đã hoàn tất về resource và build: brand kit colors/dimens/styles/theme và font offline.
+- Đã sửa gradle/gradle-daemon-jvm.properties: toolchainVersion=17; bỏ toàn bộ URL tải JDK 25 cũ.
+- `gradlew --version`: Gradle 9.6.0; Launcher JVM Oracle 17.0.11; Daemon JVM compatible with Java 17.
+- `gradlew.bat assembleDebug` với JAVA_HOME=C:\Program Files\Java\jdk-17: BUILD SUCCESSFUL in 23s, exit 0 (2026-11-09).
+- Đã chuyển 16sp/2dp sang text_button/stroke_button; thêm touch_target_min=48dp; thêm style Card, Chip, TextInputLayout/TextInputEditText, Heading/Body/Caption. Đã bật hai fontFamily trong theme.
+- Người dùng đã đổi font thành be_vietnam_pro_regular.ttf, be_vietnam_pro_medium.ttf, be_vietnam_pro_bold.ttf, be_vietnam_pro_extrabold.ttf. be_vietnam_pro.xml chỉ tham chiếu bốn font này, trọng lượng 400/500/700/800. Chưa kiểm tra trực quan trên emulator.
 
-## Quyết định đã chốt
-- JDK 17 (`C:\Program Files\Java\jdk-17`), ghi trong `gradle/gradle-daemon-jvm.properties`. Mọi thành viên cần JDK 17.
-- AGP 9.4.1 (Kotlin tích hợp sẵn, KHÔNG thêm plugin Kotlin riêng).
-- compileSdk 37, targetSdk 37, minSdk 24, Java target 11.
-- Phiên bản Gradle: chưa xác nhận (xem `gradle/wrapper/gradle-wrapper.properties`).
-- `.idea/` và `local.properties` nằm trong `.gitignore`.
-- Không có `UserRole`. BC3 dùng dữ liệu mẫu; realtime thật để dành báo cáo cuối.
-- Thư viện đề xuất (chờ nhóm đồng ý): Glide, Lottie.
+## Quyết định đã duyệt
+- JDK 17; AGP 9.4.1; compileSdk/targetSdk 37; minSdk 24; Java target 11. Không thêm plugin Kotlin riêng.
+- JAVA_HOME môi trường hiện trỏ tới C:\Program Files\Apache NetBeans\jdk không tồn tại. Các lệnh kiểm tra đã đặt JAVA_HOME=C:\Program Files\Java\jdk-17 chỉ trong process, không đổi biến hệ thống.
+- MVVM đơn giản; package ui/, data/model/, data/repository/, data/sample/, viewmodel/, utils/.
+- Một Activity + Fragment, Navigation Component, không Safe Args.
+- Đã duyệt Fragment KTX, Lifecycle ViewModel + LiveData, Navigation Fragment/UI, RecyclerView. Chưa thêm dependency hoặc chọn phiên bản ở 0A; tới bước phù hợp phải kiểm tra bản stable tương thích compileSdk 37 và AGP 9.4.1.
+- Không thêm thư viện khác; Glide/Lottie/Firebase để sau.
+- UI State bằng LiveData: Loading / Empty / Error / Success.
+- Repository dạng interface; BC3 dùng sample/local state, Firebase để giai đoạn sau. Group BC3 phải ghi rõ mô phỏng.
+- Model chung: FoodItem (có thành phần), Restaurant, CartItem, Order, OrderStatus, GroupOrder, GroupMember, GroupCartItem, Voucher; không UserRole.
+- Giỏ cá nhân/phòng nhóm chỉ một quán; đơn lưu snapshot tên và giá.
+- Order có sẵn từ đầu: noPlasticCutlery mặc định true, ecoPointsAwarded, scheduledStartMillis?, scheduledEndMillis?, deliveryMode (EXPRESS/SAVER).
+- Điểm Eco cộng theo orderId đúng một lần khi đơn hoàn thành và đủ điều kiện Eco.
+- Chia tiền nhóm: mỗi người trả phần món của mình; phí giao và giảm giá chia đều; số dư lẻ dồn cho chủ phòng; tổng các phần phải bằng tổng đơn.
+- Vùng chạm tối thiểu 48dp; icon_button 40dp chỉ là kích thước icon.
+- Chỉ thành viên A sửa nav_graph.xml và menu bottom navigation.
+- Giai đoạn 1B tách thành ba nhiệm vụ nhỏ: xác nhận đặt hàng; theo dõi đơn; lịch sử và hủy.
+- Ảnh món dùng ảnh giữ chỗ qua imageKey trước, thay ảnh thật sau.
+- Ưu tiên: luồng khách hàng cốt lõi → Group Ordering → Eco + Hẹn giờ → hiệu ứng/hoàn thiện → Allergy Guard.
+- Màn Group/Eco/Hẹn giờ/Allergy cần nhóm duyệt thiết kế trước khi code.
 
 ## Nhiệm vụ tiếp theo duy nhất
-**Giai đoạn 0, bước 1: Brand kit + cây package + model dùng chung (chưa code màn hình).**
-1. Đề xuất bảng màu xanh nhiều tầng + màu nhấn ấm, font, style nút/thẻ/ô nhập → `colors.xml`, `themes.xml`, `dimens.xml`.
-2. Chốt cây package: `ui/`, `data/model/`, `data/repository/`, `data/sample/`, `viewmodel/`, `utils/`.
-3. Chốt model: FoodItem (có thành phần), Restaurant, CartItem, Order, OrderStatus, GroupOrder, GroupMember, GroupCartItem, Voucher.
-4. Cả nhóm 3 người duyệt trước khi chia code.
+**0B — chốt cây package, model dùng chung và repository contract.** Chưa triển khai trong phiên 0A.
 
-Sau đó (từng nhiệm vụ riêng): dữ liệu mẫu → khung điều hướng → chia code A/B/C theo `TEAM_TASKS.md`.
-
-## Việc nhóm cần làm ngoài code
-- Cập nhật `UI_GUIDELINES.md` cho khớp brand kit khi được chốt.
-- Chọn ảnh món (Unsplash/Pexels), cùng tỉ lệ và tông màu.
-- Quyết định có thêm Glide/Lottie không.
-- 2 thành viên còn lại clone repo, cài JDK 17, kiểm tra build.
-
-## File đã thêm/sửa
-- Toàn bộ project Android khởi tạo, 8 file `.md`, thư mục `design/`, `.gitignore`.
-- Lần cập nhật này: `CLAUDE.md`, `PROJECT_PLAN.md`, `TEAM_TASKS.md`, `CURRENT_TASK.md`.
-
-## Lỗi/giả định còn tồn tại
-- `UI_GUIDELINES.md`, `README.md`, `PROMPT_*.md` còn nhắc 4 vai trò; ưu tiên `CLAUDE.md` khi mâu thuẫn.
-- Gradle version chưa xác nhận.
-- Chưa có thiết kế các màn hình mới; không được bịa luồng, cần ghi giả định và hỏi nhóm.
+## File thay đổi phiên 2026-11-09
+- gradle/gradle-daemon-jvm.properties: chỉ định JDK 17, bỏ URL JDK 25.
+- app/src/main/res/values/styles.xml, dimens.xml, themes.xml và res/font/be_vietnam_pro.xml: hoàn thiện styles/font 0A.
+- CURRENT_TASK.md: trạng thái thực tế và quyết định đã duyệt.
+- WORKLOG.md: thêm nhật ký ở cuối.
+- Không sửa Gradle dependency, model, màn hình hoặc Navigation. Không commit/push.
